@@ -6,13 +6,6 @@ A project that runs tiny-llama ona rasberry-pi 5 with a webinterface to interact
 
 ![mockup](./docs/mockup.png)
 
-## Notes to myself
-
-Make a model switching dropdown between TinyLlama and Llama3?
-The Pi can run Llama3, it's just slow...
-
-AI should respond using markdown. Output text should be displayed correctly (MD -> HTML)
-
 ## How to setup ollama on your pi
 
 Ensure your Raspberry Pi is running a 64-bit operating system. Ollama won't work on 32-bit systems.
@@ -42,4 +35,18 @@ ollama run llama3
 
 Now you can ask the model questions and have conversations using the terminal.
 
-### Interacting with the model via an API
+## Running the Frontend
+
+```sh
+npm install
+```
+
+```sh
+cd frontend
+npm run build
+npm start
+```
+
+You can now view the website on [http://localhost:3000](http://localhost:3000)
+
+## Running the Python API
