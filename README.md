@@ -13,6 +13,14 @@ raspberry-ai/
 └── README.md          # This file
 ```
 
+## Quick Start (Windows Users)
+
+1. **Install Ollama and download tinyllama** (see setup instructions below)
+2. **Start Ollama:** `ollama serve` (in a separate terminal)
+3. **Start the backend:** Double-click `start_backend.bat`
+4. **Start the frontend:** Double-click `start_frontend.bat`
+5. **Open your browser:** [http://localhost:3000](http://localhost:3000)
+
 ## Website Mockup
 
 ![mockup](./docs/mockup.png)
@@ -48,14 +56,18 @@ Now you can ask the model questions and have conversations using the terminal.
 
 ## Running the Frontend
 
-```sh
-npm install
+**Windows:** Simply double-click or run:
+
+```batch
+start_frontend.bat
 ```
+
+**Linux/macOS:** Use npm directly:
 
 ```sh
 cd frontend
-npm run build
-npm start
+npm install
+npm run dev
 ```
 
 You can now view the website on [http://localhost:3000](http://localhost:3000)
@@ -102,7 +114,13 @@ pip install fastapi uvicorn[standard] requests pydantic
 
 ### Running the API Server
 
-Start the FastAPI server with uvicorn:
+**Windows:** Simply double-click or run:
+
+```batch
+start_backend.bat
+```
+
+**Linux/macOS:** Use uvicorn directly:
 
 ```sh
 uvicorn app:app --reload --host 0.0.0.0 --port 8000
@@ -123,3 +141,29 @@ The API will be available at:
 ### Note
 
 Make sure Ollama is running on your system before starting the API server, as the backend communicates with Ollama on `http://127.0.0.1:11434`.
+
+## Troubleshooting
+
+### Starting Ollama (Required!)
+
+Before using the application, start Ollama in a separate terminal:
+
+```sh
+ollama serve
+```
+
+### Windows Batch Files
+
+- `start_backend.bat` - Starts the Python FastAPI server
+- `start_frontend.bat` - Starts the Next.js development server
+
+### Common Issues
+
+1. **"Cannot connect to Ollama"** - Make sure `ollama serve` is running
+2. **Port 8000 already in use** - Stop other services or change the port in `start_backend.bat`
+3. **Frontend can't connect to API** - Ensure the backend is running first
+4. **Node.js errors** - Run `npm install` in the frontend directory first
+
+### Testing the API
+
+Visit [http://localhost:8000/docs](http://localhost:8000/docs) to test the API directly.
