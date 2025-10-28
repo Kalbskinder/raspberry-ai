@@ -2,9 +2,13 @@
 import { useState, useRef, useEffect } from "react";
 import styles from "./ChatInput.module.css";
 
-export default function ChatInput({ onSend }: any) {
+interface ChatInputProps {
+  onSend?: (message: string) => void;
+}
+
+export default function ChatInput({ onSend }: ChatInputProps) {
   const [message, setMessage] = useState("");
-  const textareaRef = useRef(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     // initial height
@@ -15,7 +19,7 @@ export default function ChatInput({ onSend }: any) {
     }
   }, []);
 
-  const handleInput = (e) => {
+  const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const ta = textareaRef.current;
     if (!ta) return;
     ta.style.height = "auto";
@@ -32,7 +36,7 @@ export default function ChatInput({ onSend }: any) {
     if (ta) ta.style.height = "40px";
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSend();
