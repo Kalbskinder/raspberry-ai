@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 28px;
+  border: 1px solid #d1d5db;
+  background: #f8fafc;
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+  transition: box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.textarea {
+  flex: 1;
+  min-height: 40px;
+  max-height: 200px;
+  overflow-y: auto;
+  resize: none;
+  padding: 10px 14px;
+  border-radius: 16px;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  line-height: 1.4;
+  outline: none;
+  color: #0f172a;
+}
+
+.textarea::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+.sendButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  background: #e6e6e6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.06s ease;
+  flex: 0 0 44px;
+}
+
+.sendButton:hover {
+  background: #d3d3d3;
+}
+.sendButton:active {
+  transform: translateY(1px);
+}
+
+.sendButton svg {
+  color: #374151;
+}
+
+.textarea::-webkit-scrollbar {
+  width: 8px;
+}
+.textarea::-webkit-scrollbar-thumb {
+  background: rgba(15,23,42,0.12);
+  border-radius: 999px;
+}
+.textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
